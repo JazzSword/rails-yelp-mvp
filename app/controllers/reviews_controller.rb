@@ -12,8 +12,9 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to restaurant_path(@restaurant)
     else
-      render :new, status: :unprocessable_entity
+      render 'restaurants/show' # Render the parent restaurant's show view
     end
+    # @review = @restaurant.reviews.new(review_params)
   end
 
   private
